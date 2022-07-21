@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alarm</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: brder=border-box;
+        font-family: cooper;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        background: rgb(4, 4, 44);
+      }
+      html {
+        font-size: 62.5%;
+      }
+      .container {
+        width: 38rem;
+        left: 1rem;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 1rem;
+        /* background:red; */
+        border-radius: 1rem 3rem;
+        margin: auto;
+        position: relative;
+        box-shadow: 0 16px 25px -20px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        /* z-index: 4; */
+        height: 20rem;
+      }
+      .container::before {
+        position: absolute;
+        content: "";
+        width: 8rem;
+        filter: blur(5px);
+        height: 8rem;
+        border-radius: 50%;
+        top: -4rem;
+        z-index: -1;
+        left: -1rem;
+        background: linear-gradient(rgb(233, 20, 126), skyblue);
+      }
+
+      .container::after {
+        position: absolute;
+        content: "";
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        bottom: -4rem;
+        filter: blur(5px);
+        /* z-index: -1; */
+        right: -1.8rem;
+        background: linear-gradient(rgb(218, 9, 113), rgb(101, 16, 182));
+      }
+      #time {
+        font-size: 3rem;
+        text-align: center;
+        color: #fff;
+        font-family: cooper;
+        margin-top: 1rem;
+      }
+      .sectors {
+        display: flex;
+        position: relative;
+        top: 2rem;
+        justify-content: center;
+        gap: 1rem;
+        margin: auto;
+        align-items: center;
+        padding: 1rem;
+      }
+      .hms {
+        font-size: 1.5rem;
+        padding: 0.6rem 1.3rem;
+      }
+      button {
+        position: absolute;
+        bottom: 3rem;
+        color: rgb(218, 25, 121);
+        background: rgba(255, 255, 255, 0.04);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: 80%;
+        display: block;
+        left: 10%;
+        font-size: 1.9rem;
+        padding: 0.5rem;
+      }
+      img{
+        width: 10rem;
+        height: 10rem;
+        border-radius: 2px;
+        margin: auto;
+        display: block;
+        border: 20px solid rgb(4,4,44);
+      }
+      .cir{
+        animation: round .5s alternate-reverse infinite;
+      }
+      @keyframes round{
+        100%{
+            transform: scale(1.3);
+        }
+      }
+      @media(max-width:768px){
+        .container{
+            width: 100vw;
+            height: 100vh;
+            left: 0;
+            background: transparent;
+            margin:0;
+            overflow:hidden;
+        }
+        img{
+            width: 15rem;
+            height: 15rem;
+            z-index: -1;
+            position: relative;
+            top:16rem;
+        }
+        #time{
+            position: relative;
+            top: 25rem;
+        }
+        .sectors{
+            position: relative;
+            top: 30rem;
+        }
+        .container::after{
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+            bottom: 0;
+            right: 0;
+        }
+        .container::before{
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+            bottom: 3rem;
+            right: 14rem;
+        }
+
+      }
+    </style>
+    <script defer src="index.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <img src="Clcimg.jpg" alt="" class="img " />
+      <h1 id="time">01:48:23 PM</h1>
+      <div class="sectors">
+        <div class="hours">
+          <select name="" id="hv" class="hms">
+            <option value="HOURS">HOURS</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+          </select>
+        </div>
+        <div class="minutes">
+          <select name="" id="mv" class="hms">
+            <option value="MINUTES">MINUTES</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+
+
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+
+            <option value="49">49</option>
+            <option value="50">50</option>
+            <option value="51">51</option>
+
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="54">54</option>
+
+            <option value="55">55</option>
+            <option value="56">56</option>
+            <option value="57">57</option>
+
+            <option value="58">58</option>
+            <option value="59">59</option>
+          </select>
+        </div>
+
+        <div class="seconds">
+          <select name="" id="apv" class="hms">
+            <option value="AM">AM</option>
+            <option value="PM">PM</option>
+          </select>
+        </div>
+      </div>
+      <!-- <div class="btn"><button>Set Alarm</button></div> -->
+    </div>
+  </body>
+</html>
